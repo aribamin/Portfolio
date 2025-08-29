@@ -9,7 +9,6 @@
 <!-- Particles.js CDN -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <style>
-/* Global styles */
 body {
   background:#0f111a;
   color:#e0e0e0;
@@ -95,10 +94,9 @@ form button:hover {
 </nav>
 
 <!-- Hero -->
-<section id="hero" class="pt-24 pb-16 text-center">
+<section id="hero" class="pt-24 pb-16 text-center flex flex-col items-center">
+  <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mb-4 border-4 border-cyan-400">
   <h1 class="text-5xl md:text-6xl font-bold text-cyan-400 mb-4 subtle-glow">Hi, I'm Arib Amin</h1>
-  <p class="text-xl md:text-2xl mb-8 subtle-glow" id="hero-subtitle"></p>
-  <a href="#projects" class="px-6 py-3 bg-blue-700 hover:bg-blue-600 rounded-lg transition">See My Work</a>
 </section>
 
 <!-- About -->
@@ -119,30 +117,6 @@ form button:hover {
         <li>Integrated cloud APIs for performance optimization.</li>
       </ul>
     </div>
-    <div class="bg-gray-800/70 p-5 rounded-lg">
-      <h3 class="font-bold text-xl">Undergraduate Teaching Assistant @ University of Alberta</h3>
-      <p class="text-gray-400">Sep 2024 - Apr 2025</p>
-      <ul class="list-disc list-inside text-gray-300 mt-2">
-        <li>Developed responsive web interfaces with Tailwind CSS.</li>
-        <li>Enhanced UX/UI collaboratively in agile sprints.</li>
-      </ul>
-    </div>
-    <div class="bg-gray-800/70 p-5 rounded-lg">
-      <h3 class="font-bold text-xl">Undergraduate Teaching Assistant @ University of Alberta</h3>
-      <p class="text-gray-400">Sep 2024 - Apr 2025</p>
-      <ul class="list-disc list-inside text-gray-300 mt-2">
-        <li>Developed responsive web interfaces with Tailwind CSS.</li>
-        <li>Enhanced UX/UI collaboratively in agile sprints.</li>
-      </ul>
-    </div>
-    <div class="bg-gray-800/70 p-5 rounded-lg">
-      <h3 class="font-bold text-xl">Undergraduate Teaching Assistant @ University of Alberta</h3>
-      <p class="text-gray-400">Sep 2024 - Apr 2025</p>
-      <ul class="list-disc list-inside text-gray-300 mt-2">
-        <li>Developed responsive web interfaces with Tailwind CSS.</li>
-        <li>Enhanced UX/UI collaboratively in agile sprints.</li>
-      </ul>
-    </div>
   </div>
 </section>
 
@@ -154,18 +128,21 @@ form button:hover {
       <div class="card-inner p-5 rounded-lg">
         <h3 class="font-bold mb-2 text-lg md:text-xl">AWS Cloud Resource Dashboard</h3>
         <p>A modern web app with React & Node.js.</p>
+        <a href="https://github.com/aribamin/aws-dashboard" target="_blank" class="mt-2 inline-block px-4 py-2 bg-cyan-400 text-black rounded hover:bg-cyan-300 transition">GitHub</a>
       </div>
     </div>
     <div class="project-card">
       <div class="card-inner p-5 rounded-lg">
         <h3 class="font-bold mb-2 text-lg md:text-xl">Distributed Social Media Platform</h3>
         <p>Another cool project.</p>
+        <a href="https://github.com/aribamin/social-media" target="_blank" class="mt-2 inline-block px-4 py-2 bg-cyan-400 text-black rounded hover:bg-cyan-300 transition">GitHub</a>
       </div>
     </div>
     <div class="project-card">
       <div class="card-inner p-5 rounded-lg">
         <h3 class="font-bold mb-2 text-lg md:text-xl">Android Event Hosting App</h3>
         <p>Another cool project.</p>
+        <a href="https://github.com/aribamin/android-event-app" target="_blank" class="mt-2 inline-block px-4 py-2 bg-cyan-400 text-black rounded hover:bg-cyan-300 transition">GitHub</a>
       </div>
     </div>
   </div>
@@ -193,7 +170,6 @@ form button:hover {
   </form>
 </section>
 
-<!-- JavaScript -->
 <script>
 /* Particles.js */
 particlesJS("particles-js", {
@@ -207,23 +183,6 @@ particlesJS("particles-js", {
     move: { enable: true, speed: 1 }
   }
 });
-
-/* Rotating role typing effect */
-const roles = ["Full-Stack Developer","Front-End","Back-End"];
-let i=0,charIndex=0;
-const subtitle = document.getElementById("hero-subtitle");
-function typeRole(){
-  subtitle.textContent = roles[i].substring(0,charIndex);
-  charIndex++;
-  if(charIndex>roles[i].length){
-    charIndex=0;
-    i=(i+1)%roles.length;
-    setTimeout(typeRole,1500);
-  } else {
-    setTimeout(typeRole,120);
-  }
-}
-typeRole();
 
 /* Skill bars animation */
 const skills = document.querySelectorAll(".skill-bar-fill");
