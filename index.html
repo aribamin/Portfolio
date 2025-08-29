@@ -26,21 +26,6 @@ body {
 .subtle-glow {
   text-shadow:0 0 6px rgba(0,200,255,0.3);
 }
-.skill-bar-bg {
-  background:#222;
-  height:20px;
-  border-radius:10px;
-  width:100%;
-  max-width:500px;
-  overflow:hidden;
-}
-.skill-bar-fill {
-  background:#00c8ff;
-  height:20px;
-  width:0%;
-  border-radius:10px;
-  transition: width 1s ease;
-}
 .project-card {
   perspective:800px;
 }
@@ -89,6 +74,7 @@ form button:hover {
     <li><a href="#experience" class="hover:text-cyan-300 transition">Experience</a></li>
     <li><a href="#projects" class="hover:text-cyan-300 transition">Projects</a></li>
     <li><a href="#skills" class="hover:text-cyan-300 transition">Skills</a></li>
+    <li><a href="#education" class="hover:text-cyan-300 transition">Education</a></li>
     <li><a href="#contact" class="hover:text-cyan-300 transition">Contact</a></li>
   </ul>
 </nav>
@@ -97,6 +83,7 @@ form button:hover {
 <section id="hero" class="pt-24 pb-16 text-center flex flex-col items-center">
   <img src="profile.jpg" alt="Profile Picture" class="w-32 h-32 rounded-full mb-4 border-4 border-cyan-400">
   <h1 class="text-5xl md:text-6xl font-bold text-cyan-400 mb-4 subtle-glow">Hi, I'm Arib Amin</h1>
+  <a href="https://www.linkedin.com/in/aribamin" target="_blank" class="mt-2 px-4 py-2 bg-cyan-400 text-black rounded hover:bg-cyan-300 transition">LinkedIn</a>
 </section>
 
 <!-- About -->
@@ -149,13 +136,25 @@ form button:hover {
 </section>
 
 <!-- Skills -->
-<section id="skills" class="py-16 text-center">
-  <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 subtle-glow">Skills</h2>
-  <div class="space-y-4 w-full max-w-md mx-auto">
-    <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="90%"></div></div>
-    <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="80%"></div></div>
-    <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="70%"></div></div>
-  </div>
+<section id="skills" class="py-16 text-left max-w-5xl mx-auto">
+  <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 subtle-glow text-center">Skills</h2>
+  <p class="mb-2 font-semibold">Languages:</p>
+  <p>Python | Java | C | C++ | JavaScript | HTML | CSS | TypeScript | SQL | Bash | C#</p>
+  <p class="mt-4 font-semibold">Databases:</p>
+  <p>MySQL | PostgreSQL | Firebase | MongoDB | SQLite</p>
+  <p class="mt-4 font-semibold">Frameworks & Tools:</p>
+  <p>Spring Boot | React | Django | Flask | Node.js | REST | Express | Tailwind | Postman | Bootstrap | Git | JUnit | Espresso</p>
+  <p class="mt-4 font-semibold">Cloud:</p>
+  <p>Amazon Web Services | Docker | Kubernetes | Heroku</p>
+</section>
+
+<!-- Education -->
+<section id="education" class="py-16 text-center">
+  <h2 class="text-3xl md:text-4xl font-bold text-cyan-400 mb-6 subtle-glow">Education</h2>
+  <p class="font-semibold">Bachelor of Science in Computer Science</p>
+  <p class="mb-2">University of Alberta</p>
+  <p class="mt-4 font-semibold">Relevant Courses:</p>
+  <p>Data Structures & Algorithms | Operating Systems | Software Engineering | Databases | Cloud Computing | AI & Machine Learning</p>
 </section>
 
 <!-- Contact -->
@@ -183,19 +182,6 @@ particlesJS("particles-js", {
     move: { enable: true, speed: 1 }
   }
 });
-
-/* Skill bars animation */
-const skills = document.querySelectorAll(".skill-bar-fill");
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.style.width = entry.target.dataset.skill;
-      observer.unobserve(entry.target);
-    }
-  });
-},{ threshold:0.3 });
-skills.forEach(skill=>observer.observe(skill));
-setTimeout(()=>{skills.forEach(skill=>{if(skill.style.width==="") skill.style.width=skill.dataset.skill;});},1000);
 </script>
 </body>
 </html>
