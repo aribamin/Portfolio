@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Particles.js background
+  // Particles background
   particlesJS("particles-js", {
     particles: {
       number: { value: 80 },
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Rotating roles typing effect
+  // Rotating roles
   const roles = ["Full-Stack Developer", "Cloud Engineer", "AI Enthusiast"];
   let i = 0, charIndex = 0;
   const subtitle = document.getElementById("hero-subtitle");
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   typeRole();
 
-  // Animate skill bars on scroll
+  // Animate skill bars
   const skills = document.querySelectorAll(".skill-bar-fill");
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
