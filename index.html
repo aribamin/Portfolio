@@ -1,151 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Your Name | Cyber-Futuristic Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Name | Cyber-Futuristic Portfolio</title>
 
-  <!-- Tailwind CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- GSAP for animations -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<!-- GSAP -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-  <!-- Particles.js for matrix/futuristic background -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<!-- particles.js -->
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
-  <!-- Custom JS -->
-  <script defer src="js/scripts.js"></script>
-
-  <style>
-    /* Neon/glow effects */
-    .neon-text {
-      color: #0ff;
-      text-shadow:
-        0 0 5px #0ff,
-        0 0 10px #0ff,
-        0 0 20px #0ff,
-        0 0 40px #0ff;
-    }
-
-    .neon-button {
-      background: #0ff;
-      color: #000;
-      box-shadow: 0 0 10px #0ff, 0 0 20px #0ff, 0 0 40px #0ff;
-      transition: all 0.3s ease-in-out;
-    }
-    .neon-button:hover {
-      transform: scale(1.1);
-      box-shadow: 0 0 20px #0ff, 0 0 40px #0ff, 0 0 80px #0ff;
-    }
-
-    .project-card {
-      perspective: 1000px;
-    }
-    .card-inner {
-      transition: transform 0.3s;
-      transform-style: preserve-3d;
-    }
-    .card-inner:hover {
-      transform: rotateY(15deg) rotateX(10deg);
-    }
-  </style>
+<style>
+  body { margin:0; padding:0; background:#000; color:#fff; overflow-x:hidden; }
+  #particles-js { position:absolute; width:100%; height:100%; top:0; left:0; z-index:-1; }
+  .neon-text { color:#0ff; text-shadow:0 0 5px #0ff,0 0 10px #0ff,0 0 20px #0ff; }
+  .neon-button { background:#0ff; color:#000; box-shadow:0 0 10px #0ff; padding:10px 20px; border-radius:8px; display:inline-block; transition:all 0.3s; }
+  .neon-button:hover { transform:scale(1.1); box-shadow:0 0 20px #0ff; }
+  .skill-bar-bg { background:#222; height:20px; border-radius:10px; }
+  .skill-bar-fill { background:#0ff; height:20px; width:0%; border-radius:10px; }
+</style>
 </head>
-<body class="bg-black text-white overflow-x-hidden relative">
+<body>
 
-  <!-- PARTICLES BACKGROUND -->
-  <div id="particles-js" class="absolute inset-0 -z-10"></div>
+<!-- Particle Background -->
+<div id="particles-js"></div>
 
-  <!-- NAV -->
-  <nav class="fixed w-full z-50 py-4 px-10 flex justify-between items-center bg-black/50 backdrop-blur-sm">
-    <div class="text-2xl font-bold neon-text">YourName</div>
-    <ul class="flex space-x-6">
-      <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
-      <li><a href="#projects" class="hover:text-cyan-400 transition">Projects</a></li>
-      <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
-      <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
-    </ul>
-  </nav>
+<!-- Hero Section -->
+<section class="h-screen flex flex-col justify-center items-center text-center px-5">
+  <h1 class="text-6xl font-bold mb-4 neon-text">Hi, I'm Your Name</h1>
+  <p class="text-2xl mb-8 neon-text" id="hero-subtitle"></p>
+  <a href="#projects" class="neon-button">See My Work</a>
+</section>
 
-  <!-- HERO -->
-  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-5">
-    <h1 class="text-6xl font-extrabold mb-4 neon-text" id="hero-title">Hi, I'm Your Name</h1>
-    <p class="text-2xl mb-8 neon-text" id="hero-subtitle"></p>
-    <a href="#projects" class="px-8 py-3 neon-button rounded-lg font-bold">See My Work</a>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about" class="py-32 px-5 max-w-4xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-6 neon-text">About Me</h2>
-    <p class="text-lg leading-relaxed">
-      I’m a software engineer building scalable, high-performance, and futuristic applications.
-      I thrive on innovation, love creating interactive experiences, and enjoy turning bold ideas into code.
-    </p>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="py-32 px-5 max-w-6xl mx-auto">
-    <h2 class="text-4xl font-bold mb-12 text-center neon-text">Projects</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- Project Card -->
-      <div class="project-card bg-gray-900 rounded-xl shadow-lg overflow-hidden">
-        <div class="card-inner">
-          <img src="assets/images/project1.png" alt="Project 1" class="w-full h-48 object-cover">
-          <div class="p-5">
-            <h3 class="text-2xl font-bold mb-2 neon-text">Project One</h3>
-            <p class="mb-3">Full-stack web app with React & Node.js. Real-time data interactions and futuristic UI.</p>
-            <div class="flex flex-wrap gap-2 mb-3">
-              <span class="bg-cyan-400 text-black px-2 py-1 rounded">React</span>
-              <span class="bg-green-400 text-black px-2 py-1 rounded">Node.js</span>
-            </div>
-            <div class="flex gap-4">
-              <a href="#" class="hover:text-cyan-400 transition">GitHub</a>
-              <a href="#" class="hover:text-cyan-400 transition">Live</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Duplicate more cards -->
+<!-- Skills -->
+<section class="py-32 px-5 max-w-4xl mx-auto text-center">
+  <h2 class="text-4xl font-bold mb-12 neon-text">Skills</h2>
+  <div class="space-y-6">
+    <div class="text-left">
+      <p class="mb-1 font-semibold neon-text">JavaScript</p>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="90%"></div></div>
     </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills" class="py-32 px-5 max-w-4xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-12 neon-text">Skills</h2>
-    <div class="space-y-6">
-      <div class="text-left">
-        <p class="mb-1 font-semibold neon-text">JavaScript</p>
-        <div class="bg-gray-800 h-4 rounded-full">
-          <div class="bg-cyan-400 h-4 rounded-full w-0" data-skill="90%"></div>
-        </div>
-      </div>
-      <div class="text-left">
-        <p class="mb-1 font-semibold neon-text">React</p>
-        <div class="bg-gray-800 h-4 rounded-full">
-          <div class="bg-purple-400 h-4 rounded-full w-0" data-skill="85%"></div>
-        </div>
-      </div>
-      <div class="text-left">
-        <p class="mb-1 font-semibold neon-text">Node.js</p>
-        <div class="bg-gray-800 h-4 rounded-full">
-          <div class="bg-green-400 h-4 rounded-full w-0" data-skill="75%"></div>
-        </div>
-      </div>
+    <div class="text-left">
+      <p class="mb-1 font-semibold neon-text">React</p>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="85%"></div></div>
     </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="py-32 px-5 max-w-4xl mx-auto text-center">
-    <h2 class="text-4xl font-bold mb-6 neon-text">Contact</h2>
-    <p class="mb-6">Reach out via email or LinkedIn!</p>
-    <div class="flex justify-center gap-6 flex-wrap">
-      <a href="mailto:youremail@example.com" class="px-6 py-3 neon-button rounded-lg font-bold">Email Me</a>
-      <a href="https://www.linkedin.com/in/yourprofile" class="px-6 py-3 neon-button rounded-lg font-bold">LinkedIn</a>
-      <a href="https://github.com/yourusername" class="px-6 py-3 neon-button rounded-lg font-bold">GitHub</a>
+    <div class="text-left">
+      <p class="mb-1 font-semibold neon-text">Node.js</p>
+      <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="75%"></div></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="bg-gray-900 py-6 text-center text-gray-400">© 2025 Your Name. All rights reserved.</footer>
+<script>
+// Ensure DOM loaded
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Initialize particles.js
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 100 },
+      color: { value: "#0ff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.3 },
+      size: { value: 3 },
+      line_linked: { enable: true, distance: 120, color: "#0ff", opacity:0.1, width:1 },
+      move: { enable: true, speed: 1 }
+    }
+  });
+
+  // Rotating roles typing effect
+  const roles = ["Full-Stack Developer", "Cloud Engineer", "AI Enthusiast"];
+  let i = 0, charIndex = 0;
+  const subtitle = document.getElementById("hero-subtitle");
+
+  function typeRole() {
+    subtitle.textContent = roles[i].substring(0, charIndex);
+    charIndex++;
+    if(charIndex > roles[i].length){
+      charIndex = 0;
+      i = (i+1)%roles.length;
+      setTimeout(typeRole, 1500);
+    } else {
+      setTimeout(typeRole, 120);
+    }
+  }
+  typeRole();
+
+  // Animate skill bars
+  const skills = document.querySelectorAll(".skill-bar-fill");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.width = entry.target.dataset.skill;
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  skills.forEach(skill => observer.observe(skill));
+
+});
+</script>
 
 </body>
 </html>
