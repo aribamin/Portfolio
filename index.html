@@ -6,11 +6,15 @@
 <title>Your Name | Portfolio</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <style>
 body { margin:0; font-family:'Inter',sans-serif; background:#0f111a; color:#e0e0e0; scroll-behavior:smooth;}
 #particles-js { position:fixed; width:100%; height:100%; top:0; left:0; z-index:-1; }
 .subtle-glow { text-shadow:0 0 4px rgba(0,200,255,0.3); }
 section { min-height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:60px 20px; }
+.project-card { perspective:800px; }
+.card-inner { transition:transform 0.3s ease; transform-style:preserve-3d; background:rgba(26,28,44,0.9); border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.5); }
+.card-inner:hover { transform: rotateY(6deg) rotateX(4deg); box-shadow:0 15px 25px rgba(0,200,255,0.3); }
 .skill-bar-bg { background:#222; height:20px; border-radius:10px; width:100%; max-width:500px; overflow:hidden; }
 .skill-bar-fill { background:#00c8ff; height:20px; width:0%; border-radius:10px; }
 </style>
@@ -20,10 +24,23 @@ section { min-height:80vh; display:flex; flex-direction:column; justify-content:
 <!-- Particle background -->
 <div id="particles-js"></div>
 
+<!-- NAVIGATION -->
+<nav class="fixed w-full z-50 py-4 px-10 flex justify-between items-center bg-black/40 backdrop-blur-sm">
+  <div class="text-2xl font-bold subtle-glow">Your Name</div>
+  <ul class="flex space-x-6">
+    <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
+    <li><a href="#experience" class="hover:text-cyan-400 transition">Experience</a></li>
+    <li><a href="#projects" class="hover:text-cyan-400 transition">Projects</a></li>
+    <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
+    <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
+  </ul>
+</nav>
+
 <!-- HERO -->
 <section id="hero">
   <h1 class="text-5xl font-bold subtle-glow mb-4">Hi, I'm Your Name</h1>
   <p class="text-xl subtle-glow mb-8" id="hero-subtitle"></p>
+  <a href="#projects" class="px-6 py-3 bg-blue-700 rounded-lg hover:bg-blue-600 transition">See My Work</a>
 </section>
 
 <!-- ABOUT -->
@@ -53,13 +70,17 @@ section { min-height:80vh; display:flex; flex-direction:column; justify-content:
 <section id="projects">
   <h2 class="text-3xl font-bold subtle-glow mb-4">Projects</h2>
   <div class="grid md:grid-cols-2 gap-6 max-w-4xl">
-    <div class="bg-gray-800 p-4 rounded">
-      <h3 class="font-bold mb-2">Project One</h3>
-      <p>A modern web app with React & Node.js.</p>
+    <div class="project-card">
+      <div class="card-inner p-4 rounded">
+        <h3 class="font-bold mb-2">Project One</h3>
+        <p>A modern web app with React & Node.js.</p>
+      </div>
     </div>
-    <div class="bg-gray-800 p-4 rounded">
-      <h3 class="font-bold mb-2">Project Two</h3>
-      <p>Another cool project.</p>
+    <div class="project-card">
+      <div class="card-inner p-4 rounded">
+        <h3 class="font-bold mb-2">Project Two</h3>
+        <p>Another cool project.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -74,6 +95,21 @@ section { min-height:80vh; display:flex; flex-direction:column; justify-content:
   </div>
 </section>
 
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="text-3xl font-bold mb-6 subtle-glow">Contact Me</h2>
+  <p class="mb-6">Fill out the form below to get in touch!</p>
+  <form action="https://formspree.io/f/your-form-id" method="POST" class="max-w-md mx-auto space-y-4">
+    <input type="text" name="name" placeholder="Your Name" required
+           class="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400">
+    <input type="email" name="email" placeholder="Your Email" required
+           class="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400">
+    <textarea name="message" rows="5" placeholder="Your Message" required
+              class="w-full px-4 py-2 rounded bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-cyan-400"></textarea>
+    <button type="submit" class="w-full px-4 py-2 bg-blue-700 hover:bg-blue-600 rounded-lg transition">Send Message</button>
+  </form>
+</section>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   // Particles
@@ -81,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
     particles: { number:{value:80}, color:{value:"#00c8ff"}, shape:{type:"circle"}, opacity:{value:0.2}, size:{value:3}, line_linked:{enable:true, distance:120, color:"#00c8ff", opacity:0.05, width:1}, move:{enable:true, speed:1} }
   });
 
-  // Typing effect
+  // Rotating roles
   const roles = ["Full-Stack Developer","Cloud Engineer","AI Enthusiast"];
   let i=0, charIndex=0;
   const subtitle=document.getElementById("hero-subtitle");
@@ -106,5 +142,6 @@ document.addEventListener("DOMContentLoaded", () => {
   skills.forEach(skill=>observer.observe(skill));
 });
 </script>
+
 </body>
 </html>
