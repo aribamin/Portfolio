@@ -8,112 +8,106 @@
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- AOS for scroll animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <!-- particles.js for fancy background -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
   <!-- Custom JS -->
   <script defer src="js/scripts.js"></script>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
+<body class="bg-gray-900 text-white overflow-x-hidden">
+
+  <!-- PARTICLES BACKGROUND -->
+  <div id="particles-js" class="absolute inset-0 -z-10"></div>
 
   <!-- NAVIGATION -->
-  <nav class="fixed w-full bg-white dark:bg-gray-800 shadow z-50">
-    <div class="max-w-6xl mx-auto px-5 flex justify-between items-center h-16">
-      <div class="text-2xl font-bold text-blue-600">YourName</div>
-      <ul class="flex space-x-6">
-        <li><a href="#about" class="hover:text-blue-500">About</a></li>
-        <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
-        <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
-        <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
-      </ul>
-      <button id="darkModeToggle" class="ml-4 px-2 py-1 border rounded">🌙</button>
-    </div>
+  <nav class="fixed w-full z-50 py-4 px-10 flex justify-between items-center bg-gray-900/50 backdrop-blur-sm">
+    <div class="text-2xl font-bold text-blue-400">YourName</div>
+    <ul class="flex space-x-6">
+      <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
+      <li><a href="#projects" class="hover:text-yellow-400 transition">Projects</a></li>
+      <li><a href="#skills" class="hover:text-yellow-400 transition">Skills</a></li>
+      <li><a href="#contact" class="hover:text-yellow-400 transition">Contact</a></li>
+    </ul>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-    <h1 class="text-5xl font-bold mb-4" data-aos="fade-down">Hi, I'm <span class="text-yellow-300">Your Name</span></h1>
-    <p class="text-xl mb-8" data-aos="fade-up">Software Engineer | Full-Stack Developer</p>
-    <a href="#projects" class="px-6 py-3 bg-yellow-400 rounded-lg font-semibold hover:bg-yellow-500 transition" data-aos="zoom-in">See My Work</a>
+  <!-- HERO SECTION -->
+  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center px-5">
+    <h1 class="text-6xl font-extrabold mb-4" id="hero-title">Hi, I'm <span class="text-yellow-400">Your Name</span></h1>
+    <p class="text-2xl mb-8" id="hero-subtitle">Software Engineer | Full-Stack Developer</p>
+    <a href="#projects" class="px-8 py-3 bg-yellow-400 text-gray-900 font-bold rounded-lg hover:bg-yellow-500 transition-transform transform hover:scale-105">See My Work</a>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about" class="py-20 px-5 max-w-4xl mx-auto text-center" data-aos="fade-up">
+  <!-- ABOUT SECTION -->
+  <section id="about" class="py-32 px-5 max-w-4xl mx-auto text-center">
     <h2 class="text-4xl font-bold mb-6">About Me</h2>
-    <p class="text-lg leading-relaxed">
-      I'm a passionate software engineer who loves building scalable, user-friendly applications.
-      Experienced in frontend and backend development, constantly learning new technologies.
-    </p>
+    <p class="text-lg leading-relaxed">I'm a passionate software engineer who loves building scalable, interactive applications with cutting-edge technologies. I specialize in frontend and backend development and thrive on learning new tools to solve complex problems.</p>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="py-20 px-5 max-w-6xl mx-auto">
-    <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Projects</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <!-- PROJECTS SECTION -->
+  <section id="projects" class="py-32 px-5 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold mb-12 text-center">Projects</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
       <!-- Project Card -->
-      <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition" data-aos="fade-up">
+      <div class="bg-gray-800 rounded-xl overflow-hidden shadow-2xl transform transition-transform hover:scale-105 hover:shadow-yellow-400/50">
         <img src="assets/images/project1.png" alt="Project 1" class="w-full h-48 object-cover">
         <div class="p-5">
           <h3 class="text-2xl font-bold mb-2">Project One</h3>
-          <p class="mb-2">Short description of the project, the tech stack, and purpose.</p>
-          <div class="flex flex-wrap gap-2 mb-2">
-            <span class="bg-blue-200 dark:bg-blue-700 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">React</span>
-            <span class="bg-blue-200 dark:bg-blue-700 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">Node.js</span>
+          <p class="mb-3">A full-stack web application with React and Node.js for dynamic data handling.</p>
+          <div class="flex flex-wrap gap-2 mb-3">
+            <span class="bg-yellow-400 text-gray-900 px-2 py-1 rounded">React</span>
+            <span class="bg-green-400 text-gray-900 px-2 py-1 rounded">Node.js</span>
           </div>
           <div class="flex gap-4">
-            <a href="#" class="hover:text-yellow-400">GitHub</a>
-            <a href="#" class="hover:text-yellow-400">Live</a>
+            <a href="#" class="hover:text-yellow-400 transition">GitHub</a>
+            <a href="#" class="hover:text-yellow-400 transition">Live</a>
           </div>
         </div>
       </div>
-      <!-- Duplicate Project Cards as needed -->
+      <!-- Duplicate for more projects -->
     </div>
   </section>
 
-  <!-- SKILLS -->
-  <section id="skills" class="py-20 px-5 max-w-4xl mx-auto text-center" data-aos="fade-up">
-    <h2 class="text-4xl font-bold mb-8">Skills</h2>
-    <div class="space-y-4">
-      <div>
-        <p class="font-semibold mb-1">JavaScript</p>
-        <div class="bg-gray-300 dark:bg-gray-700 h-4 rounded-full">
-          <div class="bg-yellow-400 h-4 rounded-full w-4/5 transition-all duration-1000"></div>
+  <!-- SKILLS SECTION -->
+  <section id="skills" class="py-32 px-5 max-w-4xl mx-auto text-center">
+    <h2 class="text-4xl font-bold mb-12">Skills</h2>
+    <div class="space-y-6">
+      <div class="text-left">
+        <p class="mb-1 font-semibold">JavaScript</p>
+        <div class="bg-gray-700 h-4 rounded-full">
+          <div class="bg-yellow-400 h-4 rounded-full w-0" data-skill="90%"></div>
         </div>
       </div>
-      <div>
-        <p class="font-semibold mb-1">React</p>
-        <div class="bg-gray-300 dark:bg-gray-700 h-4 rounded-full">
-          <div class="bg-blue-500 h-4 rounded-full w-4/5 transition-all duration-1000"></div>
+      <div class="text-left">
+        <p class="mb-1 font-semibold">React</p>
+        <div class="bg-gray-700 h-4 rounded-full">
+          <div class="bg-blue-400 h-4 rounded-full w-0" data-skill="85%"></div>
         </div>
       </div>
-      <div>
-        <p class="font-semibold mb-1">Node.js</p>
-        <div class="bg-gray-300 dark:bg-gray-700 h-4 rounded-full">
-          <div class="bg-green-500 h-4 rounded-full w-3/5 transition-all duration-1000"></div>
+      <div class="text-left">
+        <p class="mb-1 font-semibold">Node.js</p>
+        <div class="bg-gray-700 h-4 rounded-full">
+          <div class="bg-green-400 h-4 rounded-full w-0" data-skill="75%"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="py-20 px-5 max-w-4xl mx-auto text-center" data-aos="fade-up">
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="py-32 px-5 max-w-4xl mx-auto text-center">
     <h2 class="text-4xl font-bold mb-6">Contact</h2>
-    <p class="mb-6">Get in touch via email or LinkedIn!</p>
-    <div class="flex justify-center gap-4 flex-wrap">
-      <a href="mailto:youremail@example.com" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Email Me</a>
-      <a href="https://www.linkedin.com/in/yourprofile" class="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800">LinkedIn</a>
-      <a href="https://github.com/yourusername" class="px-4 py-2 bg-gray-900 text-white rounded hover:bg-gray-800">GitHub</a>
+    <p class="mb-6">Reach out via email or LinkedIn!</p>
+    <div class="flex justify-center gap-6 flex-wrap">
+      <a href="mailto:youremail@example.com" class="px-6 py-3 bg-blue-500 rounded-lg hover:bg-blue-600 transition">Email Me</a>
+      <a href="https://www.linkedin.com/in/yourprofile" class="px-6 py-3 bg-blue-700 rounded-lg hover:bg-blue-800 transition">LinkedIn</a>
+      <a href="https://github.com/yourusername" class="px-6 py-3 bg-gray-900 rounded-lg hover:bg-gray-800 transition">GitHub</a>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer class="bg-gray-200 dark:bg-gray-800 py-6 text-center">
-    <p>© 2025 Your Name. All rights reserved.</p>
-  </footer>
+  <footer class="bg-gray-800 py-6 text-center text-gray-400">© 2025 Your Name. All rights reserved.</footer>
 
-  <script>
-    AOS.init();
-  </script>
 </body>
 </html>
