@@ -1,4 +1,4 @@
-// Particles.js background
+// Initialize particles.js
 particlesJS("particles-js", {
   particles: {
     number: { value: 80 },
@@ -11,7 +11,7 @@ particlesJS("particles-js", {
   }
 });
 
-// Rotating roles typing effect
+// Rotating role typing effect
 const roles = ["Full-Stack Developer", "Cloud Engineer", "AI Enthusiast"];
 let i = 0, charIndex = 0;
 const subtitle = document.getElementById("hero-subtitle");
@@ -33,7 +33,7 @@ typeRole();
 const skills = document.querySelectorAll(".skill-bar-fill");
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    if(entry.isIntersecting){
       entry.target.style.width = entry.target.dataset.skill;
       observer.unobserve(entry.target);
     }
@@ -42,9 +42,9 @@ const observer = new IntersectionObserver(entries => {
 
 skills.forEach(skill => observer.observe(skill));
 
-// Fallback: ensure bars fill even if observer fails
+// Fallback: ensure bars animate even if observer fails
 setTimeout(() => {
   skills.forEach(skill => {
-    if (skill.style.width === "") skill.style.width = skill.dataset.skill;
+    if(skill.style.width === "") skill.style.width = skill.dataset.skill;
   });
 }, 1000);
