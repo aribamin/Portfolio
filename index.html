@@ -5,19 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Name | Portfolio</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
 <style>
-body { margin:0; font-family:'Inter',sans-serif; background:#0f111a; color:#e0e0e0; scroll-behavior:smooth; }
+body { margin:0; font-family:'Inter',sans-serif; background:#0f111a; color:#e0e0e0; scroll-behavior:smooth;}
 #particles-js { position:fixed; width:100%; height:100%; top:0; left:0; z-index:-1; }
 .subtle-glow { text-shadow:0 0 4px rgba(0,200,255,0.3); }
-.project-card { perspective:800px; }
-.card-inner { transition:transform 0.3s ease; transform-style:preserve-3d; background:rgba(26,28,44,0.9); border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.5); }
-.card-inner:hover { transform: rotateY(6deg) rotateX(4deg); box-shadow:0 15px 25px rgba(0,200,255,0.3); }
-.skill-bar-bg { background:#222; height:20px; border-radius:10px; overflow:hidden; }
+section { min-height:80vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:60px 20px; }
+.skill-bar-bg { background:#222; height:20px; border-radius:10px; width:100%; max-width:500px; overflow:hidden; }
 .skill-bar-fill { background:#00c8ff; height:20px; width:0%; border-radius:10px; }
-section { padding-top:120px; padding-bottom:120px; position:relative; }
 </style>
 </head>
 <body>
@@ -25,155 +20,91 @@ section { padding-top:120px; padding-bottom:120px; position:relative; }
 <!-- Particle background -->
 <div id="particles-js"></div>
 
-<!-- NAV -->
-<nav class="fixed w-full z-50 py-4 px-10 flex justify-between items-center bg-black/40 backdrop-blur-sm">
-  <div class="text-2xl font-bold subtle-glow">Your Name</div>
-  <ul class="flex space-x-6">
-    <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
-    <li><a href="#experience" class="hover:text-cyan-400 transition">Experience</a></li>
-    <li><a href="#projects" class="hover:text-cyan-400 transition">Projects</a></li>
-    <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
-    <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
-  </ul>
-</nav>
-
 <!-- HERO -->
-<section class="h-screen flex flex-col justify-center items-center text-center px-5">
-  <h1 class="text-5xl font-bold mb-4 subtle-glow">Hi, I'm Your Name</h1>
-  <p class="text-xl mb-8 subtle-glow" id="hero-subtitle"></p>
-  <a href="#projects" class="px-6 py-3 bg-blue-700 rounded-lg hover:bg-blue-600 transition">See My Work</a>
+<section id="hero">
+  <h1 class="text-5xl font-bold subtle-glow mb-4">Hi, I'm Your Name</h1>
+  <p class="text-xl subtle-glow mb-8" id="hero-subtitle"></p>
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="text-center">
-  <h2 class="text-3xl font-bold mb-6 subtle-glow">About Me</h2>
-  <p class="max-w-2xl mx-auto">I am a software engineer focused on building modern web applications with full-stack experience, cloud computing, and AI integration.</p>
+<section id="about">
+  <h2 class="text-3xl font-bold subtle-glow mb-4">About Me</h2>
+  <p class="max-w-2xl text-center">I am a software engineer focused on building modern web applications with full-stack experience, cloud computing, and AI integration.</p>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <h2 class="text-3xl font-bold mb-12 text-center subtle-glow">Experience</h2>
-  <div class="max-w-4xl mx-auto space-y-6">
-    <div class="bg-gray-800/70 rounded-lg p-5">
-      <h3 class="text-xl font-bold">Software Engineer @ TechCorp</h3>
-      <p class="text-gray-300">Jan 2023 - Present</p>
-      <ul class="list-disc list-inside text-gray-400">
-        <li>Developed full-stack dashboard with React & Node.js.</li>
-        <li>Integrated cloud-based APIs to optimize performance.</li>
-      </ul>
+  <h2 class="text-3xl font-bold subtle-glow mb-4">Experience</h2>
+  <div class="max-w-2xl space-y-4 text-center">
+    <div>
+      <h3 class="font-bold">Software Engineer @ TechCorp</h3>
+      <p class="text-gray-400">Jan 2023 - Present</p>
+      <p>Built full-stack dashboards with React & Node.js.</p>
     </div>
-    <div class="bg-gray-800/70 rounded-lg p-5">
-      <h3 class="text-xl font-bold">Frontend Developer Intern @ WebWorks</h3>
-      <p class="text-gray-300">Jun 2022 - Dec 2022</p>
-      <ul class="list-disc list-inside text-gray-400">
-        <li>Built responsive web interfaces with Tailwind CSS.</li>
-        <li>Collaborated in an agile team to enhance UX/UI.</li>
-      </ul>
+    <div>
+      <h3 class="font-bold">Frontend Intern @ WebWorks</h3>
+      <p class="text-gray-400">Jun 2022 - Dec 2022</p>
+      <p>Developed responsive web interfaces with Tailwind CSS.</p>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <h2 class="text-3xl font-bold mb-12 text-center subtle-glow">Projects</h2>
-  <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-    <div class="project-card">
-      <div class="card-inner">
-        <img src="assets/images/project1.png" alt="Project 1" class="w-full h-48 object-cover rounded-t-lg">
-        <div class="p-5">
-          <h3 class="text-xl font-bold mb-2">Project One</h3>
-          <p class="mb-3 text-gray-300">A modern web app with React and Node.js.</p>
-          <div class="flex flex-wrap gap-2 mb-3">
-            <span class="bg-blue-600 text-white px-2 py-1 rounded">React</span>
-            <span class="bg-green-600 text-white px-2 py-1 rounded">Node.js</span>
-          </div>
-          <div class="flex gap-4">
-            <a href="#" class="hover:text-blue-400 transition">GitHub</a>
-            <a href="#" class="hover:text-blue-400 transition">Live</a>
-          </div>
-        </div>
-      </div>
+  <h2 class="text-3xl font-bold subtle-glow mb-4">Projects</h2>
+  <div class="grid md:grid-cols-2 gap-6 max-w-4xl">
+    <div class="bg-gray-800 p-4 rounded">
+      <h3 class="font-bold mb-2">Project One</h3>
+      <p>A modern web app with React & Node.js.</p>
+    </div>
+    <div class="bg-gray-800 p-4 rounded">
+      <h3 class="font-bold mb-2">Project Two</h3>
+      <p>Another cool project.</p>
     </div>
   </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="text-center">
-  <h2 class="text-3xl font-bold mb-12 subtle-glow">Skills</h2>
-  <div class="max-w-2xl mx-auto space-y-6">
-    <div class="text-left">
-      <p class="mb-1 font-semibold">JavaScript</p>
-      <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="90%"></div></div>
-    </div>
-    <div class="text-left">
-      <p class="mb-1 font-semibold">React</p>
-      <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="85%"></div></div>
-    </div>
-    <div class="text-left">
-      <p class="mb-1 font-semibold">Node.js</p>
-      <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="75%"></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="text-center">
-  <h2 class="text-3xl font-bold mb-6 subtle-glow">Contact</h2>
-  <p class="mb-6">Reach out via email or LinkedIn!</p>
-  <div class="flex justify-center gap-6 flex-wrap">
-    <a href="mailto:youremail@example.com" class="px-6 py-3 bg-blue-700 rounded-lg hover:bg-blue-600 transition">Email Me</a>
-    <a href="https://www.linkedin.com/in/yourprofile" class="px-6 py-3 bg-blue-700 rounded-lg hover:bg-blue-600 transition">LinkedIn</a>
-    <a href="https://github.com/yourusername" class="px-6 py-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">GitHub</a>
+<section id="skills">
+  <h2 class="text-3xl font-bold subtle-glow mb-4">Skills</h2>
+  <div class="space-y-4">
+    <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="90%"></div></div>
+    <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="80%"></div></div>
+    <div class="skill-bar-bg"><div class="skill-bar-fill" data-skill="70%"></div></div>
   </div>
 </section>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-
-  // Particles background
+  // Particles
   particlesJS("particles-js", {
-    particles: {
-      number: { value: 100 },
-      color: { value: "#00c8ff" },
-      shape: { type: "circle" },
-      opacity: { value: 0.15 },
-      size: { value: 3 },
-      line_linked: { enable: true, distance: 120, color: "#00c8ff", opacity:0.05, width:1 },
-      move: { enable: true, speed: 1 }
-    }
+    particles: { number:{value:80}, color:{value:"#00c8ff"}, shape:{type:"circle"}, opacity:{value:0.2}, size:{value:3}, line_linked:{enable:true, distance:120, color:"#00c8ff", opacity:0.05, width:1}, move:{enable:true, speed:1} }
   });
 
-  // Rotating roles
-  const roles = ["Full-Stack Developer", "Cloud Engineer", "AI Enthusiast"];
-  let i = 0, charIndex = 0;
-  const subtitle = document.getElementById("hero-subtitle");
+  // Typing effect
+  const roles = ["Full-Stack Developer","Cloud Engineer","AI Enthusiast"];
+  let i=0, charIndex=0;
+  const subtitle=document.getElementById("hero-subtitle");
   function typeRole() {
-    subtitle.textContent = roles[i].substring(0, charIndex);
+    subtitle.textContent=roles[i].substring(0,charIndex);
     charIndex++;
-    if(charIndex > roles[i].length){
-      charIndex = 0;
-      i = (i+1)%roles.length;
-      setTimeout(typeRole, 1500);
-    } else {
-      setTimeout(typeRole, 120);
-    }
+    if(charIndex>roles[i].length){ charIndex=0; i=(i+1)%roles.length; setTimeout(typeRole,1500); } 
+    else { setTimeout(typeRole,120); }
   }
   typeRole();
 
-  // Animate skill bars on scroll
-  const skills = document.querySelectorAll(".skill-bar-fill");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+  // Animate skill bars
+  const skills=document.querySelectorAll(".skill-bar-fill");
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
       if(entry.isIntersecting){
-        entry.target.style.width = entry.target.dataset.skill;
+        entry.target.style.width=entry.target.dataset.skill;
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold:0.5 });
-  skills.forEach(skill => observer.observe(skill));
-
+  },{threshold:0.5});
+  skills.forEach(skill=>observer.observe(skill));
 });
 </script>
-
 </body>
 </html>
