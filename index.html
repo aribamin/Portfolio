@@ -1,90 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name | Software Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name | Software Engineer</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- AOS for scroll animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Custom JS -->
+  <script defer src="js/scripts.js"></script>
 </head>
-<body>
-    <!-- NAVIGATION -->
-    <nav>
-        <div class="logo">YourName</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-500">
 
-    <!-- HERO SECTION -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Hi, I'm <span>Your Name</span></h1>
-            <p>Software Engineer | Full-Stack Developer</p>
-            <a href="#projects" class="btn">See My Work</a>
+  <!-- NAVIGATION -->
+  <nav class="fixed w-full bg-white dark:bg-gray-800 shadow z-50">
+    <div class="max-w-6xl mx-auto px-5 flex justify-between items-center h-16">
+      <div class="text-2xl font-bold text-blue-600">YourName</div>
+      <ul class="flex space-x-6">
+        <li><a href="#about" class="hover:text-blue-500">About</a></li>
+        <li><a href="#projects" class="hover:text-blue-500">Projects</a></li>
+        <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
+        <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
+      </ul>
+      <button id="darkModeToggle" class="ml-4 px-2 py-1 border rounded">🌙</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero" class="h-screen flex flex-col justify-center items-center text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white">
+    <h1 class="text-5xl font-bold mb-4" data-aos="fade-down">Hi, I'm <span class="text-yellow-300">Your Name</span></h1>
+    <p class="text-xl mb-8" data-aos="fade-up">Software Engineer | Full-Stack Developer</p>
+    <a href="#projects" class="px-6 py-3 bg-yellow-400 rounded-lg font-semibold hover:bg-yellow-500 transition" data-aos="zoom-in">See My Work</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20 px-5 max-w-4xl mx-auto text-center" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-6">About Me</h2>
+    <p class="text-lg leading-relaxed">
+      I'm a passionate software engineer who loves building scalable, user-friendly applications.
+      Experienced in frontend and backend development, constantly learning new technologies.
+    </p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-20 px-5 max-w-6xl mx-auto">
+    <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">Projects</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project Card -->
+      <div class="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:scale-105 transform transition" data-aos="fade-up">
+        <img src="assets/images/project1.png" alt="Project 1" class="w-full h-48 object-cover">
+        <div class="p-5">
+          <h3 class="text-2xl font-bold mb-2">Project One</h3>
+          <p class="mb-2">Short description of the project, the tech stack, and purpose.</p>
+          <div class="flex flex-wrap gap-2 mb-2">
+            <span class="bg-blue-200 dark:bg-blue-700 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">React</span>
+            <span class="bg-blue-200 dark:bg-blue-700 text-blue-800 dark:text-blue-200 px-2 py-1 rounded">Node.js</span>
+          </div>
+          <div class="flex gap-4">
+            <a href="#" class="hover:text-yellow-400">GitHub</a>
+            <a href="#" class="hover:text-yellow-400">Live</a>
+          </div>
         </div>
-    </section>
+      </div>
+      <!-- Duplicate Project Cards as needed -->
+    </div>
+  </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-        <h2>About Me</h2>
-        <p>I'm a passionate software engineer who loves building scalable and user-friendly applications. Experienced in frontend and backend development, and always eager to learn new technologies.</p>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-grid">
-            <div class="project-card">
-                <img src="assets/images/project1.png" alt="Project 1">
-                <h3>Project One</h3>
-                <p>Short description of the project, the tech stack, and purpose.</p>
-                <a href="#" class="btn-small">View Project</a>
-            </div>
-            <div class="project-card">
-                <img src="assets/images/project2.png" alt="Project 2">
-                <h3>Project Two</h3>
-                <p>Short description of the project, the tech stack, and purpose.</p>
-                <a href="#" class="btn-small">View Project</a>
-            </div>
-            <!-- Add more project cards as needed -->
+  <!-- SKILLS -->
+  <section id="skills" class="py-20 px-5 max-w-4xl mx-auto text-center" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-8">Skills</h2>
+    <div class="space-y-4">
+      <div>
+        <p class="font-semibold mb-1">JavaScript</p>
+        <div class="bg-gray-300 dark:bg-gray-700 h-4 rounded-full">
+          <div class="bg-yellow-400 h-4 rounded-full w-4/5 transition-all duration-1000"></div>
         </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section id="skills">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">React</div>
-            <div class="skill">Node.js</div>
-            <div class="skill">Python</div>
-            <div class="skill">SQL</div>
-            <div class="skill">Git & GitHub</div>
+      </div>
+      <div>
+        <p class="font-semibold mb-1">React</p>
+        <div class="bg-gray-300 dark:bg-gray-700 h-4 rounded-full">
+          <div class="bg-blue-500 h-4 rounded-full w-4/5 transition-all duration-1000"></div>
         </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Get in touch via email or LinkedIn!</p>
-        <div class="contact-links">
-            <a href="mailto:youremail@example.com" class="btn-small">Email Me</a>
-            <a href="https://www.linkedin.com/in/yourprofile" class="btn-small">LinkedIn</a>
-            <a href="https://github.com/yourusername" class="btn-small">GitHub</a>
+      </div>
+      <div>
+        <p class="font-semibold mb-1">Node.js</p>
+        <div class="bg-gray-300 dark:bg-gray-700 h-4 rounded-full">
+          <div class="bg-green-500 h-4 rounded-full w-3/5 transition-all duration-1000"></div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 Your Name. All rights reserved.</p>
-    </footer>
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 px-5 max-w-4xl mx-auto text-center" data-aos="fade-up">
+    <h2 class="text-4xl font-bold mb-6">Contact</h2>
+    <p class="mb-6">Get in touch via email or LinkedIn!</p>
+    <div class="flex justify-center gap-4 flex-wrap">
+      <a href="mailto:youremail@example.com" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">Email Me</a>
+      <a href="https://www.linkedin.com/in/yourprofile" class="px-4 py-2 bg-blue-700 text-white rounded hover:bg-blue-800">LinkedIn</a>
+      <a href="https://github.com/yourusername" class="px-4 py-2 bg-gray-900 text-white rounded hover:bg-gray-800">GitHub</a>
+    </div>
+  </section>
 
-    <script src="js/scripts.js"></script>
+  <!-- FOOTER -->
+  <footer class="bg-gray-200 dark:bg-gray-800 py-6 text-center">
+    <p>© 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>
