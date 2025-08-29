@@ -3,23 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Name | Futuristic Portfolio</title>
+<title>Your Name | Portfolio</title>
 
-<!-- Tailwind CDN -->
+<!-- Tailwind CSS CDN -->
 <script src="https://cdn.tailwindcss.com"></script>
-
 <!-- GSAP for animations -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-<!-- particles.js -->
+<!-- Particles.js -->
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <style>
-  body { margin:0; padding:0; background:#0f111a; color:#e0e0e0; font-family: 'Inter', sans-serif; }
+  body { margin:0; background:#0f111a; color:#e0e0e0; font-family:'Inter',sans-serif; overflow-x:hidden; }
   #particles-js { position:absolute; width:100%; height:100%; top:0; left:0; z-index:-1; }
-  .subtle-glow { text-shadow: 0 0 4px rgba(0,200,255,0.3); }
-  .project-card { perspective: 800px; }
-  .card-inner { transition: transform 0.3s ease; transform-style: preserve-3d; background:#1a1c2c; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.5); }
+  .subtle-glow { text-shadow:0 0 4px rgba(0,200,255,0.3); }
+  .project-card { perspective:800px; }
+  .card-inner { transition:transform 0.3s ease; transform-style:preserve-3d; background:#1a1c2c; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.5); }
   .card-inner:hover { transform: rotateY(6deg) rotateX(4deg); box-shadow:0 15px 25px rgba(0,200,255,0.3); }
   .skill-bar-bg { background:#222; height:20px; border-radius:10px; }
   .skill-bar-fill { background:#00c8ff; height:20px; width:0%; border-radius:10px; }
@@ -30,11 +28,52 @@
 <!-- Particle Background -->
 <div id="particles-js"></div>
 
+<!-- NAVIGATION -->
+<nav class="fixed w-full z-50 py-4 px-10 flex justify-between items-center bg-black/50 backdrop-blur-sm">
+  <div class="text-2xl font-bold subtle-glow">Your Name</div>
+  <ul class="flex space-x-6">
+    <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
+    <li><a href="#experience" class="hover:text-cyan-400 transition">Experience</a></li>
+    <li><a href="#projects" class="hover:text-cyan-400 transition">Projects</a></li>
+    <li><a href="#skills" class="hover:text-cyan-400 transition">Skills</a></li>
+    <li><a href="#contact" class="hover:text-cyan-400 transition">Contact</a></li>
+  </ul>
+</nav>
+
 <!-- HERO -->
 <section class="h-screen flex flex-col justify-center items-center text-center px-5">
   <h1 class="text-5xl font-bold mb-4 subtle-glow">Hi, I'm Your Name</h1>
   <p class="text-xl mb-8 subtle-glow" id="hero-subtitle"></p>
   <a href="#projects" class="px-6 py-3 bg-blue-700 rounded-lg hover:bg-blue-600 transition">See My Work</a>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-20 px-5 max-w-4xl mx-auto text-center">
+  <h2 class="text-3xl font-bold mb-6 subtle-glow">About Me</h2>
+  <p>I am a software engineer focused on building modern web applications, with experience in full-stack development, cloud computing, and AI integration.</p>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="py-20 px-5 max-w-6xl mx-auto">
+  <h2 class="text-3xl font-bold mb-12 text-center subtle-glow">Experience</h2>
+  <div class="space-y-6">
+    <div class="bg-gray-800 rounded-lg p-5">
+      <h3 class="text-xl font-bold">Software Engineer @ TechCorp</h3>
+      <p class="text-gray-300">Jan 2023 - Present</p>
+      <ul class="list-disc list-inside text-gray-400">
+        <li>Developed a full-stack dashboard with React & Node.js.</li>
+        <li>Integrated cloud-based APIs to optimize performance.</li>
+      </ul>
+    </div>
+    <div class="bg-gray-800 rounded-lg p-5">
+      <h3 class="text-xl font-bold">Frontend Developer Intern @ WebWorks</h3>
+      <p class="text-gray-300">Jun 2022 - Dec 2022</p>
+      <ul class="list-disc list-inside text-gray-400">
+        <li>Built responsive web interfaces with Tailwind CSS.</li>
+        <li>Collaborated in an agile team to enhance UX/UI.</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
 <!-- PROJECTS -->
@@ -58,7 +97,7 @@
         </div>
       </div>
     </div>
-    <!-- Duplicate cards as needed -->
+    <!-- Add more project cards here -->
   </div>
 </section>
 
@@ -81,53 +120,17 @@
   </div>
 </section>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
+<!-- CONTACT -->
+<section id="contact" class="py-20 px-5 max-w-4xl mx-auto text-center">
+  <h2 class="text-3xl font-bold mb-6 subtle-glow">Contact</h2>
+  <p class="mb-6">Reach out via email or LinkedIn!</p>
+  <div class="flex justify-center gap-6 flex-wrap">
+    <a href="mailto:youremail@example.com" class="px-6 py-3 bg-blue-700 rounded-lg hover:bg-blue-600 transition">Email Me</a>
+    <a href="https://www.linkedin.com/in/yourprofile" class="px-6 py-3 bg-blue-700 rounded-lg hover:bg-blue-600 transition">LinkedIn</a>
+    <a href="https://github.com/yourusername" class="px-6 py-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition">GitHub</a>
+  </div>
+</section>
 
-  // Initialize particles.js with subtle cool colors
-  particlesJS("particles-js", {
-    particles: {
-      number: { value: 80 },
-      color: { value: "#00c8ff" },
-      shape: { type: "circle" },
-      opacity: { value: 0.2 },
-      size: { value: 3 },
-      line_linked: { enable: true, distance: 120, color: "#00c8ff", opacity:0.05, width:1 },
-      move: { enable: true, speed: 1 }
-    }
-  });
-
-  // Rotating roles typing effect
-  const roles = ["Full-Stack Developer", "Cloud Engineer", "AI Enthusiast"];
-  let i = 0, charIndex = 0;
-  const subtitle = document.getElementById("hero-subtitle");
-  function typeRole() {
-    subtitle.textContent = roles[i].substring(0, charIndex);
-    charIndex++;
-    if(charIndex > roles[i].length){
-      charIndex = 0;
-      i = (i+1)%roles.length;
-      setTimeout(typeRole, 1500);
-    } else {
-      setTimeout(typeRole, 120);
-    }
-  }
-  typeRole();
-
-  // Animate skill bars on scroll
-  const skills = document.querySelectorAll(".skill-bar-fill");
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(entry.isIntersecting){
-        entry.target.style.width = entry.target.dataset.skill;
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold:0.5 });
-  skills.forEach(skill => observer.observe(skill));
-
-});
-</script>
-
+<script src="js/scripts.js"></script>
 </body>
 </html>
