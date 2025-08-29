@@ -12,7 +12,7 @@ particlesJS("particles-js", {
 });
 
 // Rotating role typing effect
-const roles = ["Full-Stack Developer", "Front-End", "Back-End"];
+const roles = ["Full-Stack Developer", "Cloud Engineer", "AI Enthusiast"];
 let i = 0, charIndex = 0;
 const subtitle = document.getElementById("hero-subtitle");
 
