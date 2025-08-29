@@ -9,23 +9,24 @@
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 <style>
-body { margin:0; background:#0f111a; color:#e0e0e0; font-family:'Inter',sans-serif; scroll-behavior:smooth;}
-#particles-js { position:absolute; width:100%; height:100%; top:0; left:0; z-index:-1; }
+body { margin:0; font-family:'Inter',sans-serif; background:#0f111a; color:#e0e0e0; scroll-behavior:smooth; }
+#particles-js { position:fixed; width:100%; height:100%; top:0; left:0; z-index:-1; }
 .subtle-glow { text-shadow:0 0 4px rgba(0,200,255,0.3); }
 .project-card { perspective:800px; }
-.card-inner { transition:transform 0.3s ease; transform-style:preserve-3d; background:#1a1c2c; border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.5); }
+.card-inner { transition:transform 0.3s ease; transform-style:preserve-3d; background:rgba(26,28,44,0.9); border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.5); }
 .card-inner:hover { transform: rotateY(6deg) rotateX(4deg); box-shadow:0 15px 25px rgba(0,200,255,0.3); }
-.skill-bar-bg { background:#222; height:20px; border-radius:10px; }
+.skill-bar-bg { background:#222; height:20px; border-radius:10px; overflow:hidden; }
 .skill-bar-fill { background:#00c8ff; height:20px; width:0%; border-radius:10px; }
-section { padding-top:100px; padding-bottom:100px; } /* ensure spacing */
+section { padding-top:120px; padding-bottom:120px; position:relative; }
 </style>
 </head>
 <body>
 
+<!-- Particle background -->
 <div id="particles-js"></div>
 
-<!-- NAVIGATION -->
-<nav class="fixed w-full z-50 py-4 px-10 flex justify-between items-center bg-black/50 backdrop-blur-sm">
+<!-- NAV -->
+<nav class="fixed w-full z-50 py-4 px-10 flex justify-between items-center bg-black/40 backdrop-blur-sm">
   <div class="text-2xl font-bold subtle-glow">Your Name</div>
   <ul class="flex space-x-6">
     <li><a href="#about" class="hover:text-cyan-400 transition">About</a></li>
@@ -44,16 +45,16 @@ section { padding-top:100px; padding-bottom:100px; } /* ensure spacing */
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="bg-[#0f111a] text-center">
+<section id="about" class="text-center">
   <h2 class="text-3xl font-bold mb-6 subtle-glow">About Me</h2>
   <p class="max-w-2xl mx-auto">I am a software engineer focused on building modern web applications with full-stack experience, cloud computing, and AI integration.</p>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience" class="bg-[#11131e]">
+<section id="experience">
   <h2 class="text-3xl font-bold mb-12 text-center subtle-glow">Experience</h2>
   <div class="max-w-4xl mx-auto space-y-6">
-    <div class="bg-gray-800 rounded-lg p-5">
+    <div class="bg-gray-800/70 rounded-lg p-5">
       <h3 class="text-xl font-bold">Software Engineer @ TechCorp</h3>
       <p class="text-gray-300">Jan 2023 - Present</p>
       <ul class="list-disc list-inside text-gray-400">
@@ -61,7 +62,7 @@ section { padding-top:100px; padding-bottom:100px; } /* ensure spacing */
         <li>Integrated cloud-based APIs to optimize performance.</li>
       </ul>
     </div>
-    <div class="bg-gray-800 rounded-lg p-5">
+    <div class="bg-gray-800/70 rounded-lg p-5">
       <h3 class="text-xl font-bold">Frontend Developer Intern @ WebWorks</h3>
       <p class="text-gray-300">Jun 2022 - Dec 2022</p>
       <ul class="list-disc list-inside text-gray-400">
@@ -73,7 +74,7 @@ section { padding-top:100px; padding-bottom:100px; } /* ensure spacing */
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="bg-[#0f111a]">
+<section id="projects">
   <h2 class="text-3xl font-bold mb-12 text-center subtle-glow">Projects</h2>
   <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
     <div class="project-card">
@@ -97,7 +98,7 @@ section { padding-top:100px; padding-bottom:100px; } /* ensure spacing */
 </section>
 
 <!-- SKILLS -->
-<section id="skills" class="bg-[#11131e] text-center">
+<section id="skills" class="text-center">
   <h2 class="text-3xl font-bold mb-12 subtle-glow">Skills</h2>
   <div class="max-w-2xl mx-auto space-y-6">
     <div class="text-left">
@@ -116,7 +117,7 @@ section { padding-top:100px; padding-bottom:100px; } /* ensure spacing */
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="bg-[#0f111a] text-center">
+<section id="contact" class="text-center">
   <h2 class="text-3xl font-bold mb-6 subtle-glow">Contact</h2>
   <p class="mb-6">Reach out via email or LinkedIn!</p>
   <div class="flex justify-center gap-6 flex-wrap">
@@ -126,6 +127,53 @@ section { padding-top:100px; padding-bottom:100px; } /* ensure spacing */
   </div>
 </section>
 
-<script src="js/scripts.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Particles background
+  particlesJS("particles-js", {
+    particles: {
+      number: { value: 100 },
+      color: { value: "#00c8ff" },
+      shape: { type: "circle" },
+      opacity: { value: 0.15 },
+      size: { value: 3 },
+      line_linked: { enable: true, distance: 120, color: "#00c8ff", opacity:0.05, width:1 },
+      move: { enable: true, speed: 1 }
+    }
+  });
+
+  // Rotating roles
+  const roles = ["Full-Stack Developer", "Cloud Engineer", "AI Enthusiast"];
+  let i = 0, charIndex = 0;
+  const subtitle = document.getElementById("hero-subtitle");
+  function typeRole() {
+    subtitle.textContent = roles[i].substring(0, charIndex);
+    charIndex++;
+    if(charIndex > roles[i].length){
+      charIndex = 0;
+      i = (i+1)%roles.length;
+      setTimeout(typeRole, 1500);
+    } else {
+      setTimeout(typeRole, 120);
+    }
+  }
+  typeRole();
+
+  // Animate skill bars on scroll
+  const skills = document.querySelectorAll(".skill-bar-fill");
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.style.width = entry.target.dataset.skill;
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  skills.forEach(skill => observer.observe(skill));
+
+});
+</script>
+
 </body>
 </html>
