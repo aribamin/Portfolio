@@ -1,59 +1,78 @@
-/* Base & Dark Mode */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;}
-body{line-height:1.6;scroll-behavior:smooth;transition:0.3s;}
-body.light{background:#f5f5f5;color:#333;}
-body.dark{background:#111;color:#f5f5f5;}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>John Doe | Neon Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Hero Section -->
+  <section id="hero">
+    <canvas id="particles"></canvas>
+    <div class="hero-content">
+      <h1 class="neon">John Doe</h1>
+      <p class="glitch">Software Engineer Intern | Frontend & Backend</p>
+      <a href="#projects" class="btn neon-btn">See My Work</a>
+    </div>
+  </section>
 
-/* Navbar */
-header{position:sticky;top:0;z-index:1000;background:transparent;}
-nav{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:auto;padding:1rem;}
-.nav-links{list-style:none;display:flex;}
-.nav-links li{margin-left:2rem;}
-.nav-links a{text-decoration:none;color:inherit;transition:0.3s;}
-.nav-links a:hover{color:#00bcd4;}
-.burger{display:none;cursor:pointer;}
-.burger div{width:25px;height:3px;background:currentColor;margin:5px 0;transition:0.3s;}
-.toggle-dark{cursor:pointer;margin-left:1rem;font-size:1.5rem;}
+  <!-- About -->
+  <section id="about" class="section">
+    <h2 class="neon">About Me</h2>
+    <p>I build interactive web experiences with neon flair. Passionate about code, design, and everything in between.</p>
+  </section>
 
-/* Hero */
-#hero{position:relative;overflow:hidden;height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;}
-.hero-bg{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(-45deg,#00bcd4,#ff4081,#00bcd4,#ff4081);background-size:400% 400%;animation:bgAnimation 20s ease infinite;z-index:-1;}
-@keyframes bgAnimation{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-.hero-content h1{font-size:3rem;margin-bottom:1rem;}
-.hero-content p{font-size:1.2rem;margin-bottom:2rem;}
-.btn{padding:0.7rem 1.5rem;background:#fff;color:#00bcd4;border-radius:5px;text-decoration:none;transition:0.3s;}
-.btn:hover{background:#00acc1;color:#fff;transform:scale(1.05);}
+  <!-- Skills -->
+  <section id="skills" class="section">
+    <h2 class="neon">Skills</h2>
+    <div class="skills-container">
+      <span class="skill neon">HTML</span>
+      <span class="skill neon">CSS</span>
+      <span class="skill neon">JavaScript</span>
+      <span class="skill neon">React</span>
+      <span class="skill neon">Node.js</span>
+      <span class="skill neon">Python</span>
+    </div>
+  </section>
 
-/* Sections */
-section{padding:5rem 1rem;max-width:1100px;margin:auto;opacity:0;transform:translateY(50px);transition:1s;}
-section h2{text-align:center;margin-bottom:2rem;}
-section.fade-in.visible{opacity:1;transform:translateY(0);}
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <h2 class="neon">Projects</h2>
+    <div class="projects-container">
+      <div class="project-card">
+        <h3 class="glitch">Task Manager</h3>
+        <p>React & Firebase app to track tasks with neon style.</p>
+        <a href="#" class="neon-btn">View Code</a>
+      </div>
+      <div class="project-card">
+        <h3 class="glitch">Portfolio Site</h3>
+        <p>My personal portfolio built with neon vibes.</p>
+        <a href="#" class="neon-btn">View Code</a>
+      </div>
+      <div class="project-card">
+        <h3 class="glitch">REST API</h3>
+        <p>Node.js & Express API for managing users.</p>
+        <a href="#" class="neon-btn">View Code</a>
+      </div>
+    </div>
+  </section>
 
-/* Skills */
-.skills-container{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;}
-.skill{background:#00bcd4;color:#fff;padding:0.7rem 1.5rem;border-radius:25px;transition:0.3s;}
-.skill:hover{transform:scale(1.1);}
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2 class="neon">Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit" class="neon-btn">Send</button>
+    </form>
+  </section>
 
-/* Projects */
-.projects-container{display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;}
-.project-card{background:inherit;color:inherit;padding:2rem;border-radius:15px;box-shadow:0 10px 20px rgba(0,0,0,0.2);width:300px;text-align:center;transition:0.5s;cursor:pointer;}
-.project-card:hover{transform:translateY(-10px) scale(1.05);box-shadow:0 15px 25px rgba(0,0,0,0.4);}
-.project-card a{display:inline-block;margin-top:1rem;text-decoration:none;color:#00bcd4;border:1px solid #00bcd4;padding:0.5rem 1rem;border-radius:5px;transition:0.3s;}
-.project-card a:hover{background:#00bcd4;color:#fff;transform:scale(1.05);}
+  <footer>
+    <p class="neon">&copy; 2025 John Doe</p>
+  </footer>
 
-/* Contact */
-form{max-width:600px;margin:auto;display:flex;flex-direction:column;gap:1rem;}
-input,textarea{padding:0.8rem;border-radius:5px;border:1px solid #ccc;background:inherit;color:inherit;}
-button{padding:0.8rem;border:none;background:#00bcd4;color:#fff;border-radius:5px;cursor:pointer;transition:0.3s;}
-button:hover{background:#00acc1;transform:scale(1.05);}
-
-/* Footer */
-footer{text-align:center;padding:2rem;background:#222;color:#fff;}
-
-/* Responsive */
-@media(max-width:768px){
-  .nav-links{display:none;flex-direction:column;width:100%;background:inherit;position:absolute;top:60px;left:0;}
-  .nav-links li{margin:1.5rem 0;text-align:center;}
-  .burger{display:block;}
-  .nav-active{display:flex;}
-}
+  <script src="script.js"></script>
+</body>
+</html>
