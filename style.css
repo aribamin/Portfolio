@@ -1,78 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John Doe | Neon Portfolio</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Hero Section -->
-  <section id="hero">
-    <canvas id="particles"></canvas>
-    <div class="hero-content">
-      <h1 class="neon">John Doe</h1>
-      <p class="glitch">Software Engineer Intern | Frontend & Backend</p>
-      <a href="#projects" class="btn neon-btn">See My Work</a>
-    </div>
-  </section>
+/* BASE STYLES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
 
-  <!-- About -->
-  <section id="about" class="section">
-    <h2 class="neon">About Me</h2>
-    <p>I build interactive web experiences with neon flair. Passionate about code, design, and everything in between.</p>
-  </section>
+body {
+    line-height: 1.6;
+    color: #333;
+}
 
-  <!-- Skills -->
-  <section id="skills" class="section">
-    <h2 class="neon">Skills</h2>
-    <div class="skills-container">
-      <span class="skill neon">HTML</span>
-      <span class="skill neon">CSS</span>
-      <span class="skill neon">JavaScript</span>
-      <span class="skill neon">React</span>
-      <span class="skill neon">Node.js</span>
-      <span class="skill neon">Python</span>
-    </div>
-  </section>
+a {
+    text-decoration: none;
+}
 
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <h2 class="neon">Projects</h2>
-    <div class="projects-container">
-      <div class="project-card">
-        <h3 class="glitch">Task Manager</h3>
-        <p>React & Firebase app to track tasks with neon style.</p>
-        <a href="#" class="neon-btn">View Code</a>
-      </div>
-      <div class="project-card">
-        <h3 class="glitch">Portfolio Site</h3>
-        <p>My personal portfolio built with neon vibes.</p>
-        <a href="#" class="neon-btn">View Code</a>
-      </div>
-      <div class="project-card">
-        <h3 class="glitch">REST API</h3>
-        <p>Node.js & Express API for managing users.</p>
-        <a href="#" class="neon-btn">View Code</a>
-      </div>
-    </div>
-  </section>
+h1, h2, h3 {
+    font-weight: 700;
+}
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <h2 class="neon">Contact Me</h2>
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="neon-btn">Send</button>
-    </form>
-  </section>
+/* NAVIGATION */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: #111;
+    color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
 
-  <footer>
-    <p class="neon">&copy; 2025 John Doe</p>
-  </footer>
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    font-weight: 600;
+}
+
+/* HERO */
+#hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../assets/images/hero-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+}
+
+#hero h1 span {
+    color: #00bcd4;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background: #00bcd4;
+    color: #fff;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #0097a7;
+}
+
+/* SECTIONS */
+section {
+    padding: 5rem 10%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #111;
+}
+
+/* PROJECTS */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: #f4f4f4;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 1rem;
+    transition: transform 0.3s;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.btn-small {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: #00bcd4;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.btn-small:hover {
+    background: #0097a7;
+}
+
+/* SKILLS */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.skill {
+    background: #00bcd4;
+    color: #fff;
+    padding: 0.7rem 1rem;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+/* CONTACT */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+/* FOOTER */
+footer {
+    background: #111;
+    color: #fff;
+    padding: 2rem;
+    text-align: center;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    nav ul {
+        flex-direction: column;
+        display: none;
+    }
+}

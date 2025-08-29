@@ -1,78 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>John Doe | Neon Portfolio</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name | Software Engineer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Hero Section -->
-  <section id="hero">
-    <canvas id="particles"></canvas>
-    <div class="hero-content">
-      <h1 class="neon">John Doe</h1>
-      <p class="glitch">Software Engineer Intern | Frontend & Backend</p>
-      <a href="#projects" class="btn neon-btn">See My Work</a>
-    </div>
-  </section>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">YourName</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-  <!-- About -->
-  <section id="about" class="section">
-    <h2 class="neon">About Me</h2>
-    <p>I build interactive web experiences with neon flair. Passionate about code, design, and everything in between.</p>
-  </section>
+    <!-- HERO SECTION -->
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span>Your Name</span></h1>
+            <p>Software Engineer | Full-Stack Developer</p>
+            <a href="#projects" class="btn">See My Work</a>
+        </div>
+    </section>
 
-  <!-- Skills -->
-  <section id="skills" class="section">
-    <h2 class="neon">Skills</h2>
-    <div class="skills-container">
-      <span class="skill neon">HTML</span>
-      <span class="skill neon">CSS</span>
-      <span class="skill neon">JavaScript</span>
-      <span class="skill neon">React</span>
-      <span class="skill neon">Node.js</span>
-      <span class="skill neon">Python</span>
-    </div>
-  </section>
+    <!-- ABOUT -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I'm a passionate software engineer who loves building scalable and user-friendly applications. Experienced in frontend and backend development, and always eager to learn new technologies.</p>
+    </section>
 
-  <!-- Projects -->
-  <section id="projects" class="section">
-    <h2 class="neon">Projects</h2>
-    <div class="projects-container">
-      <div class="project-card">
-        <h3 class="glitch">Task Manager</h3>
-        <p>React & Firebase app to track tasks with neon style.</p>
-        <a href="#" class="neon-btn">View Code</a>
-      </div>
-      <div class="project-card">
-        <h3 class="glitch">Portfolio Site</h3>
-        <p>My personal portfolio built with neon vibes.</p>
-        <a href="#" class="neon-btn">View Code</a>
-      </div>
-      <div class="project-card">
-        <h3 class="glitch">REST API</h3>
-        <p>Node.js & Express API for managing users.</p>
-        <a href="#" class="neon-btn">View Code</a>
-      </div>
-    </div>
-  </section>
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="assets/images/project1.png" alt="Project 1">
+                <h3>Project One</h3>
+                <p>Short description of the project, the tech stack, and purpose.</p>
+                <a href="#" class="btn-small">View Project</a>
+            </div>
+            <div class="project-card">
+                <img src="assets/images/project2.png" alt="Project 2">
+                <h3>Project Two</h3>
+                <p>Short description of the project, the tech stack, and purpose.</p>
+                <a href="#" class="btn-small">View Project</a>
+            </div>
+            <!-- Add more project cards as needed -->
+        </div>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section">
-    <h2 class="neon">Contact Me</h2>
-    <form id="contact-form">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="neon-btn">Send</button>
-    </form>
-  </section>
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Python</div>
+            <div class="skill">SQL</div>
+            <div class="skill">Git & GitHub</div>
+        </div>
+    </section>
 
-  <footer>
-    <p class="neon">&copy; 2025 John Doe</p>
-  </footer>
+    <!-- CONTACT -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Get in touch via email or LinkedIn!</p>
+        <div class="contact-links">
+            <a href="mailto:youremail@example.com" class="btn-small">Email Me</a>
+            <a href="https://www.linkedin.com/in/yourprofile" class="btn-small">LinkedIn</a>
+            <a href="https://github.com/yourusername" class="btn-small">GitHub</a>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="js/scripts.js"></script>
 </body>
 </html>
